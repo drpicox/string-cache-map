@@ -51,6 +51,7 @@ describe('StringCacheMap', () => {
     expect(map.has('bOf')).toBe(false)
     expect(map.has('constructor')).toBe(false)
     expect(map.has(window)).toBe(false)
+    expect('constructor' in {}).toBe(true)
   })
 
   test('delete removes a value and returns true if was removed, false otherwise', () => {

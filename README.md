@@ -5,7 +5,7 @@ StringCacheMap is a Map with an API compatible with
 [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 that stores string-any key-value pairs.
 
-StringCacheMap has strings as keys and any value as a key. It is like using an object as a cache but with some advantages: 1) it is possible to limit the total of pairs key-value stored to a maximum amount, 2) default property names like "constructor" are not present, 3) it uses an additional victims cache to rescue old values and emulate a really fast LRU cache.
+StringCacheMap has strings as keys and any value as a value. It is like using an object as a cache but with some advantages: 1) it is possible to limit the total of pairs key-value stored to a maximum amount, 2) default property names like "constructor" are not present, 3) it uses an additional victims cache to rescue old values and emulate a really fast LRU cache.
 
 It is a substitute for WeakMap when keys are strings.
 
@@ -63,6 +63,7 @@ test('has returns true if value is present, or false otherwise', () => {
   expect(map.has('uOf')).toBe(true)
   expect(map.has('bOf')).toBe(false)
   expect(map.has('constructor')).toBe(false)
+  expect('constructor' in  {}).toBe(true)
 })
 ```
 
