@@ -15,12 +15,12 @@ Quick Use
 Install with `npm` or `yarn`:
 
 ```
-npm install string-cache-map
+npm install --save string-cache-map
 ```
 
 Your Code:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 const map = new StringCacheMap(2)
@@ -36,7 +36,7 @@ StringCacheMap Basic API
 
 Add elements with `set` and `get` to obtain the value:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 test('set values can be get', () => {
@@ -51,7 +51,7 @@ test('set values can be get', () => {
 
 Query if values are present with `has`:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 test('has returns true if value is present, or false otherwise', () => {
@@ -68,7 +68,7 @@ test('has returns true if value is present, or false otherwise', () => {
 
 Remove elements with `delete`:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 test('delete removes a value and returns true if was removed, () => {
@@ -87,7 +87,7 @@ Limit
 
 The first argument of the constructor is the limit:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 test('capacity is up to the double of the limit', () => {
@@ -102,7 +102,7 @@ test('capacity is up to the double of the limit', () => {
 
 It automatically deletes old unused values beyond the limit:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 test('capacity ensured is the limit', () => {
@@ -120,7 +120,7 @@ test('capacity ensured is the limit', () => {
 
 LRU prioritizes last got values over last set values:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
   test('gets lru reprioritizes values', () => {
@@ -141,7 +141,7 @@ import StringCacheMap from 'string-cache-map'
 
 With hard mode off (second constructor argument set to false), LRU does not invalidate last set values:
 
-```
+```javascript
 import StringCacheMap from 'string-cache-map'
 
 test('gets lru does not expulse newer values if hard is false', () => {
