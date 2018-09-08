@@ -1,6 +1,6 @@
 {
   "name": "string-cache-map",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WeakMap replacement to cache strings efficiently and fast",
   "main": "index.js",
   "scripts": {
