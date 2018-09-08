@@ -71,7 +71,7 @@ Remove elements with `delete`:
 ```javascript
 import StringCacheMap from 'string-cache-map'
 
-test('delete removes a value and returns true if was removed, () => {
+test('delete removes a value and returns true if was removed', () => {
   const map = new StringCacheMap()
   map.set('fOf', 'foo')
 
