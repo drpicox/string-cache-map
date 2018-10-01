@@ -18,14 +18,19 @@ function StringCacheMap(limit, hard) {
 StringCacheMap.prototype.delete = function(key) {
   if (!this.has(key)) return false
 
-  const { entries, victims } = caches.get(this)
+  var cache = caches.get(this)
+  var entries = cache.entries
+  var victims = cache.victims
   delete entries[key]
   delete victims[key]
   return true
 }
 
 StringCacheMap.prototype.get = function(key) {
-  const { entries, victims, hard } = caches.get(this)
+  var cache = caches.get(this)
+  var entries = cache.entries
+  var victims = cache.victims
+  var hard = cache.hard
 
   if (key in entries) return entries[key]
   if (key in victims)
@@ -36,12 +41,14 @@ StringCacheMap.prototype.get = function(key) {
 }
 
 StringCacheMap.prototype.has = function(key) {
-  const { entries, victims } = caches.get(this)
+  var cache = caches.get(this)
+  var entries = cache.entries
+  var victims = cache.victims
   return key in entries || key in victims
 }
 
 StringCacheMap.prototype.set = function(key, value) {
-  const cache = caches.get(this)
+  var cache = caches.get(this)
 
   cache.count += 1
   if (cache.count > cache.limit) {
