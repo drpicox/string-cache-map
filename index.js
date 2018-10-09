@@ -2,7 +2,10 @@
 
 var caches = new WeakMap()
 
-function StringCacheMap(limit, hard) {
+function StringCacheMap() {
+  let limit = arguments[0];
+  let hard = arguments[1];
+
   if (!this || this.constructor !== StringCacheMap)
     throw new TypeError("Constructor StringCacheMap requires 'new'")
 
@@ -60,9 +63,5 @@ StringCacheMap.prototype.set = function(key, value) {
   cache.entries[key] = value
   return this
 }
-
-Object.defineProperty(StringCacheMap, 'length', {
-  value: 0,
-})
 
 module.exports = StringCacheMap
