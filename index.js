@@ -3,8 +3,8 @@
 var caches = new WeakMap()
 
 function StringCacheMap() {
-  let limit = arguments[0];
-  let hard = arguments[1];
+  var limit = arguments[0];
+  var hard = arguments[1];
 
   if (!this || this.constructor !== StringCacheMap)
     throw new TypeError("Constructor StringCacheMap requires 'new'")
