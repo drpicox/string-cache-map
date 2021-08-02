@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const StringCacheMap = require('..')
 
 describe('StringCacheMap', () => {
@@ -38,6 +42,7 @@ describe('StringCacheMap', () => {
     const map = new StringCacheMap()
 
     expect(map.get('fOf')).toBeUndefined()
+    expect(map.get(global)).toBeUndefined()
     expect(map.get(window)).toBeUndefined()
   })
 
@@ -50,6 +55,7 @@ describe('StringCacheMap', () => {
     expect(map.has('uOf')).toBe(true)
     expect(map.has('bOf')).toBe(false)
     expect(map.has('constructor')).toBe(false)
+    expect(map.has(global)).toBe(false)
     expect(map.has(window)).toBe(false)
     expect('constructor' in {}).toBe(true)
   })
